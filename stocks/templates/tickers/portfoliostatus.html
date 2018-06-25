@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load render_table from django_tables2 %}
+<html>
+    <head>
+        <title>Portfolio Management and Real-Time Pricing</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <h1>Portfolio Management and Real-Time Stock Pricing</h1>
+        <hr>
+        <h3>Your Portfolio</h3>
+        <hr>
+            {% render_table table %}
+        <br>
+        {% if message %}
+            <div>
+                {{ message }}
+            </div>
+        {% endif %}
+        <br>
+        <hr>
+        <p><a href="{% url 'portfolioroute' %}">Manage Portfolio</a></p>
+        <p><a href="{% url 'index' %}">Main Page</a></p>
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio Management and Real-Time Pricing</title>
+    </head>
+    <body>
+        <h1>Portfolio Management and Real-Time Stock Pricing</h1>
+        <hr>
+
+        <h3>Enter the Symbol to view the pricing trend over 6 months</h3>
+        <form action="{% url 'results' %}" method="post">
+            {% csrf_token %}
+                <input name="stockname" autocomplete="off" autofocus placeholder="Stock Name" type="text">
+                <input id="stockname-submit" type="submit">
+        </form>
+
+        <br>
+        <hr>
+
+        <h3>Manage your Portfolio</h3>
+        <ul>
+            <li><p>To make changes to your Portfolio, click here:  <a href="{% url 'portfolioroute' %}">Manage Portfolio</a></p></li>
+            <li><p>To view your current Portfolio, click here:  <a href="{% url 'portfoliostatus' %}">Portfolio Status</a></p></li>
+        </ul>
+
+        <hr>
+        <a href="{% url 'logout' %}">Logout</a>
+    </body>
+</html>

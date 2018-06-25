@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio Management and Real-Time Pricing</title>
+    </head>
+    <body>
+      <h1>Portfolio Management and Real-Time Stock Pricing</h1>
+      <hr>
+      <h3>Your Portfolio: Buy/Sell Stocks</h3>
+      <p><i>Example Symbols: AAPL, AMZN, CSCO, MU, MSFT</i></p>
+      <p><i>Buy/Sell: Can be denoted in Quantity, e.g.: +/- 100</i></p>
+      <hr>
+
+        <h3 id="stocks"></h3>
+        <form action="{% url 'manageportfolio' %}" method="post">
+            {% csrf_token %}
+                <select name="Customer">
+                    <option value={{ customers.id }}>{{ customers }}</option>
+                </select>
+                <input name="stockname" autocomplete="off" autofocus placeholder="Stock Name" type="text">
+                <input type="integer" name="Quantity" autofocus placeholder="Quantity"><br>
+                <br>
+                <input id="stockname-submit" type="submit">
+        </form>
+
+        <br>
+        {% if message %}
+            <div>
+                {{ message }}
+            </div>
+        {% endif %}
+
+        <br>
+        <hr>
+        <p><a href="{% url 'portfoliostatus' %}">Portfolio Status</a></p>
+        <p><a href="{% url 'index' %}">Main Page</a></p>
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+    </body>
+</html>
