@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio Management and Real-Time Pricing</title>
+    </head>
+    <body>
+      <h1>Portfolio Management and Real-Time Stock Pricing</h1>
+      <hr>
+      <h3>Market-Data Pricing for last 6 months</h3>
+      <hr>
+          {% if stock_results %}
+              <div style="width:600;height:500">
+                  {{ stock_results|safe }}
+              </div>
+          {% endif %}
+      <hr>
+      <p><a href="{% url 'portfolioroute' %}">Manage Portfolio</a></p>
+      <p><a href="{% url 'index' %}">Main Page</a></p>
+      <p><a href="{% url 'index' %}">Main Page</a></p>
+      <p><a href="{% url 'logout' %}">Logout</a></p>
+
+    </body>
+</html>
